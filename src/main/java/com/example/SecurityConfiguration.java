@@ -30,7 +30,7 @@ public class SecurityConfiguration {
         auth.authenticationProvider(accountAuthenticationProvider);
     }
     @Configuration
-   // @Order(1)
+  
     public static class ApiWebSecurityConfigurerAdapter
             extends WebSecurityConfigurerAdapter {
 
