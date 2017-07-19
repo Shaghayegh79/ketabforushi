@@ -23,4 +23,5 @@ public class AutoreController {
 	public ResponseEntity<List<Autore>> getListaAutori(){
 		return new ResponseEntity<List<Autore>>(autoreService.getListaAutori(),HttpStatus.OK);
 	}
+	
 }

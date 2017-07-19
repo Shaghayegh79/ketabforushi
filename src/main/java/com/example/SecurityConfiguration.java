@@ -8,15 +8,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 @Configuration
 @EnableWebSecurity
-//@CrossOrigin
+
 public class SecurityConfiguration {
 
     @Autowired
@@ -29,11 +27,8 @@ public class SecurityConfiguration {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) {
-
         auth.authenticationProvider(accountAuthenticationProvider);
-
     }
-
     @Configuration
    // @Order(1)
     public static class ApiWebSecurityConfigurerAdapter
@@ -47,20 +42,8 @@ public class SecurityConfiguration {
         	.httpBasic()
         	.and()
         	.authorizeRequests()
-              	//.authorizeRequests().anyRequest().hasRole("USER")
-                ///.authorizeRequests().anyRequest().hasAuthority("USER")
-             	.antMatchers("/homePage.html","/prodotti","/allingextra").permitAll()
-             	.antMatchers("/ordini","/prodottiAdmin/**").hasAuthority("ADMIN")
+             	.antMatchers("/libreria").permitAll()
              	.anyRequest().hasAuthority("USER");
-        	
-             	//.and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-              	//.and().logout().logoutSuccessUrl("/");
-             // .and()
-              //.sessionManagement()
-               // .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-            
-            // @formatter:on
-
         }
 
     }

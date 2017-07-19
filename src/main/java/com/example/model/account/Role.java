@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 //@CrossOrigin
 @Entity
-@Table(name = "tab_role",schema="parsitgv")
+@Table(name = "tab_role",schema="utente")
 
 public class Role {
 

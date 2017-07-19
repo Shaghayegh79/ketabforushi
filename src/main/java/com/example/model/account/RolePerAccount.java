@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.springframework.web.bind.annotation.CrossOrigin;
 //@CrossOrigin
 @Entity
-@Table(name = "tab_account_role",schema="parsitgv")
+@Table(name = "tab_account_role",schema="utente")
 
 public class RolePerAccount {
 	@Id @GeneratedValue

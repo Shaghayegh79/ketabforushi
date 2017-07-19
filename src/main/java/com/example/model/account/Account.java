@@ -20,7 +20,7 @@ import javax.persistence.JoinColumn;
 //@CrossOrigin
 @Entity
 @XmlRootElement 
-@Table(name = "tab_account", schema="parsitgv")
+@Table(name = "tab_account", schema="utente")
 public class Account {
 	@Id
 	private Long id;

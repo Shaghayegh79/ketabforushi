@@ -1,13 +1,10 @@
 package com.example;
 
-import javax.sql.DataSource;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 
 @SpringBootApplication
 public class LibraryApplication {
@@ -15,16 +12,10 @@ public class LibraryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryApplication.class, args);
 	}
-/*	@Bean
-	@Primary
-	@ConfigurationProperties(prefix="spring.datasource")
-	public DataSource primaryDataSource() {
-	    return DataSourceBuilder.create().build();
+	@Bean
+	public CacheManager cacheManager() {
+	    GuavaCacheManager cacheManager=new GuavaCacheManager("library");
+		return cacheManager;
 	}
 
-	@Bean
-	@ConfigurationProperties(prefix="spring.secondDatasource")
-	public DataSource secondaryDataSource() {
-	    return DataSourceBuilder.create().build();
-	}*/
 }
